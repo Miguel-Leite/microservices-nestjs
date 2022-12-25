@@ -1,7 +1,5 @@
 # MICROSERVICES
 
-## Ignite Lab 01
-
 - NestJS
 - GraphQL
 - Apache Kafka
