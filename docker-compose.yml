@@ -50,4 +50,3 @@ services:
 volumes:
   postgresql_data:
     driver: local
-

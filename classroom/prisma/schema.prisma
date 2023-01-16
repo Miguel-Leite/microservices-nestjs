@@ -10,6 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Customer {
+model Student {
   id String @id @default(uuid())
 }
