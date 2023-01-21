@@ -19,7 +19,7 @@ export class PurchasesResolver {
     ){}
   
   @Query(()=>[Purchase])
-  // @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard)
   purchases() {
     return this.purchasesService.listAllPurchases();
   }
@@ -31,9 +31,9 @@ export class PurchasesResolver {
     return this.productsService.getProductById(purchase.productId);
   }
 
-  // @UseGuards(AuthorizationGuard)
-  @Mutation(()=>Product)
-  async createProduct(@Args("data") data: CreatePurchaseInput, @CurrentUser() user: IAuthUser) {
+  @Mutation(() => Purchase)
+  @UseGuards(AuthorizationGuard)
+  async createPurchase(@Args("data") data: CreatePurchaseInput, @CurrentUser() user: IAuthUser) {
     let customer = await this.customersService.getCustomerByAuthUserId(user.sub);
 
     if (!customer) {

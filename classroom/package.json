@@ -16,6 +16,7 @@
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix"
   },
   "dependencies": {
+    "@apollo/subgraph": "^2.2.3",
     "@nestjs/apollo": "^10.1.7",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
@@ -25,7 +26,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@prisma/client": "^4.8.1",
     "apollo-server-express": "^3.11.1",
-    "express-jwt": "^7.7.7",
+    "express-jwt": "^6.1.1",
     "graphql": "^16.6.0",
     "jwks-rsa": "^3.0.0",
     "kafkajs": "^2.2.3",

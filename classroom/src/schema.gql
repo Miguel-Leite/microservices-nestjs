@@ -2,20 +2,40 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+directive @key(fields: String!, resolvable: Boolean = true) repeatable on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+directive @shareable on FIELD_DEFINITION | OBJECT
+
+directive @link(url: String!, import: [link__Import]) on SCHEMA
+
+directive @tag(name: String!) repeatable on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
+
+directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
+
+directive @override(from: String!) on FIELD_DEFINITION
+
 type Course {
   id: ID!
   title: String!
   slug: String!
 }
 
-type Student {
-  id: ID!
+type User {
+  authUserId: ID!
   enrollments: [Enrollment!]!
 }
 
 type Enrollment {
   id: ID!
-  student: Student!
+  student: User!
   course: Course!
   cancelAt: DateTime
   createdAt: DateTime!
@@ -30,8 +50,7 @@ type Query {
   courses: [Course!]!
   course(id: String!): Course!
   enrollments: [Enrollment!]!
-  students: [Student!]!
-  me: [Student!]!
+  students: [User!]!
 }
 
 type Mutation {
@@ -41,3 +60,5 @@ type Mutation {
 input CreateCourseInput {
   title: String!
 }
+
+scalar link__Import

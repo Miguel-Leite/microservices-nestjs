@@ -1,5 +1,5 @@
-import { createParamDecorator, ExecutionContext } from "@nestjs/common";
-import { GqlExecutionContext } from "@nestjs/graphql";
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { GqlExecutionContext } from '@nestjs/graphql';
 
 export interface IAuthUser {
   sub: string;
@@ -7,10 +7,9 @@ export interface IAuthUser {
 
 export const CurrentUser = createParamDecorator(
   (data: unknown, context: ExecutionContext): IAuthUser => {
-    const ctx = GqlExecutionContext.create(context)
+    const ctx = GqlExecutionContext.create(context);
     const req = ctx.getContext().req;
 
-
     return req.user;
-  }
+  },
 );
