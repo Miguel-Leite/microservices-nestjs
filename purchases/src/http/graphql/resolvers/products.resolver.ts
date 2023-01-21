@@ -13,7 +13,6 @@ export class ProductsResolver {
     ){}
   
   @Query(()=>[Product])
-  @UseGuards(AuthorizationGuard)
   products() {
     return this.productsService.listAllProducts();
   }
